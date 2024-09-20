@@ -8,7 +8,6 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private bool isMele;
     [SerializeField] private bool isDeath;
 
-
     public void TakeDamage(int damage)
     {
         life -= damage;
@@ -29,7 +28,15 @@ public class EnemyStats : MonoBehaviour
     {
         get
         {
-            return isDeath;
+            return isMele;
+        }
+    }
+
+    public float StopDistance
+    {
+        get 
+        {
+            return StopDistace;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private MeleAttack MA;
     [SerializeField] private  RangeAttack RA;
     [SerializeField] private GameObject player;
+    [SerializeField] private RayCastEnemy RCE;
+    [SerializeField] private float distance;
 
     private void Start()
     {
@@ -19,16 +22,39 @@ public class EnemyManager : MonoBehaviour
 
     private void Update() 
     {
+        distance = Vector3.Distance(this.transform.position, player.transform.position);
         if(!ES.IsDeath)
         {
             if(ES.IsMele)
             {
-                MeleeMind();
+                if(distance > ES.StopDistance)
+                {
+                    MeleeMind();
+                }
+                else
+                {
+                    ENM.SetEnable(false);
+                    //att    
+                }
+                 
             }
             else
             {
-                RangeMind();
+                RCE.CreateRay(player);
+                if(RCE.IsPlayer)
+                {
+                    ENM.SetEnable(false);
+                    // att
+                }
+                else
+                {
+                    RangeMind();
+                }
             }
+        }
+        else
+        {
+            Debug.Log("el chavon murio");
         }
     }
 
@@ -57,4 +83,15 @@ public class EnemyManager : MonoBehaviour
     {
         ENM.NavMove();
     }
+
+    #region getersYSeters
+
+    public float Distance
+    {
+        get
+        {
+            return distance;
+        }
+    }
+    #endregion
 }

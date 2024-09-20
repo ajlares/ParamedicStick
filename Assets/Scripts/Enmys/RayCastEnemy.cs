@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class RayCastEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private bool isPlayer;
+    public void CreateRay(GameObject target)
     {
-        
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, target.transform.position - transform.position);    
+        Debug.DrawRay(ray.origin,ray.direction*30f, Color.green);
+
+        if(Physics.Raycast(ray, out hit, playerLayer))
+        {
+            Debug.Log(hit.transform.gameObject.tag);
+            hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            if(hit.transform.gameObject.CompareTag("Player"))
+            {
+                isPlayer = true;
+            }
+            else
+            {
+                isPlayer = false;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsPlayer
     {
-        
+        get
+        {
+            return isPlayer;
+        }
     }
+
 }
