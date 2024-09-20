@@ -4,6 +4,7 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField] private int life;
     [SerializeField] private int damage;
+    [SerializeField] private float StopDistace;
     [SerializeField] private bool isMele;
     [SerializeField] private bool isDeath;
 
@@ -17,13 +18,18 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public bool IsDeath()
+    public bool IsDeath
     {
-        return isDeath;
+        get 
+        {
+            return isDeath;
+        }
     }
-
-    public bool IsMele()
+    public bool IsMele
     {
-        return isMele;
+        get
+        {
+            return isDeath;
+        }
     }
 }

@@ -19,9 +19,9 @@ public class EnemyManager : MonoBehaviour
 
     private void Update() 
     {
-        if(!ES.IsDeath())
+        if(!ES.IsDeath)
         {
-            if(ES.IsMele())
+            if(ES.IsMele)
             {
                 MeleeMind();
             }

@@ -134,13 +134,13 @@ GameObject:
   - component: {fileID: 7567744}
   - component: {fileID: 7567743}
   - component: {fileID: 7567742}
-  - component: {fileID: 7567741}
   - component: {fileID: 7567740}
   - component: {fileID: 7567739}
   - component: {fileID: 7567738}
   - component: {fileID: 7567737}
   - component: {fileID: 7567736}
   - component: {fileID: 7567735}
+  - component: {fileID: 7567741}
   m_Layer: 6
   m_Name: RangeEnemyCube
   m_TagString: Enemy
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e282109f4b7a0554a9e3ec913369c27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
-  damage: 0
+  life: 50
+  damage: 10
   isMele: 0
   isDeath: 0
 --- !u!114 &7567738
@@ -243,7 +243,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -252,7 +252,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!65 &7567742
 BoxCollider:
@@ -1494,13 +1494,13 @@ GameObject:
   - component: {fileID: 1982785623}
   - component: {fileID: 1982785622}
   - component: {fileID: 1982785621}
-  - component: {fileID: 1982785625}
   - component: {fileID: 1982785631}
   - component: {fileID: 1982785630}
   - component: {fileID: 1982785629}
   - component: {fileID: 1982785628}
   - component: {fileID: 1982785627}
   - component: {fileID: 1982785626}
+  - component: {fileID: 1982785625}
   m_Layer: 6
   m_Name: MeleeEnemyCube
   m_TagString: Enemy
@@ -1605,7 +1605,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -1614,7 +1614,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1982785626
 MonoBehaviour:
@@ -1652,8 +1652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e282109f4b7a0554a9e3ec913369c27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
-  damage: 0
+  life: 100
+  damage: 5
   isMele: 1
   isDeath: 0
 --- !u!114 &1982785629
@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 54a59d0cde4fdf64fa2ecf7a0daa2fcc, type: 2}
   m_BuildHeightMesh: 0
