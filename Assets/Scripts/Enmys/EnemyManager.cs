@@ -19,13 +19,35 @@ public class EnemyManager : MonoBehaviour
 
     private void Update() 
     {
+        if(!ES.IsDeath())
+        {
+            if(ES.IsMele())
+            {
+                MeleeMind();
+            }
+            else
+            {
+                RangeMind();
+            }
+        }
+    }
+
+    private void MeleeMind()
+    {
         if(player != null)
         {
             ENM.SetEnable(true);
             NavMeshCall();
         }
     }
-
+    private void RangeMind()
+    {
+        if(player != null)
+        {
+            ENM.SetEnable(true);
+            NavMeshCall();
+        }
+    }
     private void InitSetup()
     {
         ENM.SetTarget(player);

@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
     [SerializeField] private int life;
     [SerializeField] private int damage;
+    [SerializeField] private bool isMele;
+    [SerializeField] private bool isDeath;
+
 
     public void TakeDamage(int damage)
     {
@@ -15,5 +15,15 @@ public class EnemyStats : MonoBehaviour
         {
             life = 0;
         }
+    }
+
+    public bool IsDeath()
+    {
+        return isDeath;
+    }
+
+    public bool IsMele()
+    {
+        return isMele;
     }
 }
