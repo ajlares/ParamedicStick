@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private EnemyAnimationController EAC;
     [SerializeField] private EnemyNavMesh ENM;
     [SerializeField] private EnemyStats ES;
     [SerializeField] private MeleAttack MA;
     [SerializeField] private  RangeAttack RA;
-    [SerializeField] private GameObject player;
     [SerializeField] private RayCastEnemy RCE;
     [SerializeField] private float distance;
 
@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
             {
                 if(distance > ES.StopDistance)
                 {
-                    MeleeMind();
+                    Walk();
                 }
                 else
                 {
@@ -43,12 +43,17 @@ public class EnemyManager : MonoBehaviour
                 RCE.CreateRay(player);
                 if(RCE.IsPlayer)
                 {
+
                     ENM.SetEnable(false);
-                    // att
+                    if(ES.CanShoot)
+                    {
+                        StartCoroutine(AttackRangeCall());
+                    }
+
                 }
                 else
                 {
-                    RangeMind();
+                    Walk();
                 }
             }
         }
@@ -58,15 +63,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void MeleeMind()
-    {
-        if(player != null)
-        {
-            ENM.SetEnable(true);
-            NavMeshCall();
-        }
-    }
-    private void RangeMind()
+    private void Walk()
     {
         if(player != null)
         {
@@ -82,6 +79,15 @@ public class EnemyManager : MonoBehaviour
     private void NavMeshCall()
     {
         ENM.NavMove();
+    }
+
+    IEnumerator AttackRangeCall()
+    {
+        ES.CanShoot = false;
+        RA.Shoot(ES.Damage, player);
+        yield return new WaitForSeconds(ES.AttackColdown);
+        ES.CanShoot = true;
+        yield return null;
     }
 
     #region getersYSeters

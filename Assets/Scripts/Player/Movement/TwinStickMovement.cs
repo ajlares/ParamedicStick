@@ -6,12 +6,13 @@ using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent(typeof(CharacterController))] //Añade esto automaticamente en cuanto se lo assignas al player
+[RequireComponent(typeof(CharacterController))] //Aï¿½ade esto automaticamente en cuanto se lo assignas al player
 [RequireComponent(typeof(PlayerInput))]
 public class TwinStickMovement : MonoBehaviour
 {
     [SerializeField] private float playerSpeed;
-    [SerializeField] private float gravityvalue = -9.81f; //Asumo que esto es por si queremos que salte pero pues no creo que sea el caso
+    // que se active si se llega a usar me da amsiedad;
+    //[SerializeField] private float gravityvalue = -9.81f; //Asumo que esto es por si queremos que salte pero pues no creo que sea el caso
     [SerializeField] private float controllerDeadzone = 0.1f;
     [SerializeField] private float gamepadRotateSmooothing = 1000f;
 
