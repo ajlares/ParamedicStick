@@ -9,7 +9,7 @@ public class SpawnerManager : MonoBehaviour
     // lista de enemigos
     [SerializeField] private List<GameObject> enemys;
     // lista de enfermos
-    [SerializeField] private List<GameObject> sicks;
+    [SerializeField] private GameObject sicks;
     // variables de control
     [SerializeField] private float SpawnTime;
 
@@ -21,11 +21,26 @@ public class SpawnerManager : MonoBehaviour
 
     IEnumerator SpawnSystem()
     {
+        Spawn();
+        yield return new WaitForSeconds(SpawnTime);
+        StartCoroutine(SpawnSystem());
         yield return null;
     }
 
     private void Spawn()
     {
-        
+        int rSpawn = Random.Range(0, spawners.Count);
+        int rEnemy = Random.Range(0,enemys.Count);
+        if(0 == Random.Range(0,1))
+        {
+
+            Debug.Log("0, sale un enemigo");
+            Instantiate(enemys[rEnemy],spawners[rSpawn].transform);
+        }
+        else
+        {
+            Debug.Log("1, sale un enfermos");
+            Instantiate(sicks,spawners[rSpawn].transform);
+        }
     }
 }

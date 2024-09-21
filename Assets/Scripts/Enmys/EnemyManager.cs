@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Update() 
     {
-        distance = Vector3.Distance(this.transform.position, player.transform.position);
+         distance = Vector3.Distance(this.transform.position, player.transform.position);
         if(!ES.IsDeath)
         {
             if(ES.IsMele)
