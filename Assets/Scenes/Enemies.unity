@@ -341,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254749922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47726f8e87270944a244bea55f6f142, type: 3}
   m_Name: 
@@ -1512,9 +1512,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5576671443699179463, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: rangeMaxDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497554269117235723, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: isPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497554269117235723, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: LayerMask
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497554269117235723, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 1600
+      objectReference: {fileID: 0}
     - target: {fileID: 8233172744013609969, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: m_Name
       value: RangeEnemyCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233172744013609969, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1529,6 +1549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4082911004786137398, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 1600
+      objectReference: {fileID: 0}
     - target: {fileID: 4671213573124373950, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
       propertyPath: m_Name
       value: MeleeEnemyCube
@@ -1633,6 +1657,10 @@ PrefabInstance:
     - target: {fileID: 5739075014534475209, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: m_Name
       value: FogWar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739075014534475209, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: levelMidPoint

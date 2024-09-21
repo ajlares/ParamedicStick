@@ -28,6 +28,7 @@ public class EnemyManager : MonoBehaviour
         {
             if(ES.IsMele)
             {
+                //pensamiento del mele
                 if(distance > ES.StopDistance)
                 {
                     Walk();
@@ -41,16 +42,14 @@ public class EnemyManager : MonoBehaviour
             }
             else
             {
-                RCE.CreateRay(player);
+                // pensamiento del range
+                RCE.CreateRay(player, ES.RangeMaxDistance);
                 if(RCE.IsPlayer)
                 {
-
-                    ENM.SetEnable(false);
                     if(ES.CanShoot)
                     {
                         StartCoroutine(AttackRangeCall());
                     }
-
                 }
                 else
                 {
@@ -85,6 +84,8 @@ public class EnemyManager : MonoBehaviour
     IEnumerator AttackRangeCall()
     {
         ES.CanShoot = false;
+        yield return new WaitForSeconds(0.1f);
+        ENM.SetEnable(false);
         RA.Shoot(ES.Damage, player);
         yield return new WaitForSeconds(ES.AttackColdown);
         ES.CanShoot = true;

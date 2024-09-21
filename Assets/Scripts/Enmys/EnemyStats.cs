@@ -6,6 +6,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private int life;
     [SerializeField] private int damage;
     [SerializeField] private float StopDistace;
+    [SerializeField] private int rangeMaxDistance;
     [SerializeField] private float attackColdown;
     [SerializeField] private bool isMele;
     [SerializeField] private bool isDeath;
@@ -74,6 +75,14 @@ public class EnemyStats : MonoBehaviour
         get
         {
             return attackColdown;
+        }
+    }
+
+    public int RangeMaxDistance
+    {
+        get
+        {
+            return rangeMaxDistance;
         }
     }
 }

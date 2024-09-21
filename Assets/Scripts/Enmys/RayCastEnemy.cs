@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class RayCastEnemy : MonoBehaviour
 {
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private bool isPlayer;
-    public void CreateRay(GameObject target)
+    
+    public void CreateRay(GameObject target, int MaxDistance)
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, target.transform.position - transform.position);    
-        Debug.DrawRay(ray.origin,ray.direction*30f, Color.green);
 
-        if(Physics.Raycast(ray, out hit, playerLayer))
+        if(Physics.Raycast(ray, out hit, MaxDistance, layerMask))
         {
-            Debug.Log(hit.transform.gameObject.tag);
             if(hit.transform.gameObject.CompareTag("Player"))
             {
+                Debug.Log(hit.transform.gameObject);
+                 Debug.DrawRay(transform.position ,target.transform.position - transform.position, Color.red);
                 isPlayer = true;
             }
             else
             {
+                Debug.Log(hit.transform.gameObject);
+                Debug.DrawRay(transform.position ,target.transform.position - transform.position, Color.white);
                 isPlayer = false;
             }
         }
