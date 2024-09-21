@@ -15,7 +15,6 @@ public class RayCastEnemy : MonoBehaviour
         if(Physics.Raycast(ray, out hit, playerLayer))
         {
             Debug.Log(hit.transform.gameObject.tag);
-            hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
             if(hit.transform.gameObject.CompareTag("Player"))
             {
                 isPlayer = true;
