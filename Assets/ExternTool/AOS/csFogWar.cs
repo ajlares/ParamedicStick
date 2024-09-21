@@ -851,8 +851,6 @@ namespace FischlWorks_FogWar
 #endif
     }
 
-
-
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class ShowIfAttribute : PropertyAttribute
     {
@@ -868,8 +866,6 @@ namespace FischlWorks_FogWar
         }
     }
 
-
-
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class BigHeaderAttribute : PropertyAttribute
     {
@@ -884,7 +880,4 @@ namespace FischlWorks_FogWar
             mText = text;
         }
     }
-
-
-
 }
