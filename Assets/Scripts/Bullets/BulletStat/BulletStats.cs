@@ -34,7 +34,8 @@ public class BulletStats : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            // aplicamos daño
+            other.GetComponent<PlayerStats>().Life = damage;
+            Destroy(gameObject);
         }    
         else if(other.gameObject.CompareTag("Map"))
         {

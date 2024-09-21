@@ -11,11 +11,11 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private bool isDeath;
     [SerializeField] private bool canShoot;
 
-    public int Damage
+    public int Life
     {
         get
         {
-            return damage;
+            return life;
         }
         set
         {
@@ -24,6 +24,13 @@ public class EnemyStats : MonoBehaviour
             {
             isDeath = true;
             }
+        }
+    }
+    public int Damage
+    {
+        get
+        {
+            return damage;
         }
     }
 

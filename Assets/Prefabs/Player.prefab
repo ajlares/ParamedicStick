@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 4589461408976592703}
   - component: {fileID: 8173698834560013773}
   - component: {fileID: 1849015056442306888}
+  - component: {fileID: 6507603628294239658}
   - component: {fileID: 3458827174511072269}
   - component: {fileID: 423604185061596614}
   - component: {fileID: 8557078732130322974}
@@ -354,6 +355,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6507603628294239658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888990972918297278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addd9d86a85223a4980e34ec769a4392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
 --- !u!114 &3458827174511072269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  gravityvalue: -9.81
   controllerDeadzone: 0.1
   gamepadRotateSmooothing: 1000
   isGamepad: 0
