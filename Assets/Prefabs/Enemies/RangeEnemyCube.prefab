@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2680491186725336653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7031189136550983619}
+  m_Layer: 7
+  m_Name: SPawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7031189136550983619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680491186725336653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3341247702014208469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8233172744013609969
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +71,8 @@ Transform:
   m_LocalPosition: {x: -7.55, y: 0.498, z: -7.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7031189136550983619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8345958454552442118
@@ -126,12 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bb9313b2c5fb649b64ac8dc11b64a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   EAC: {fileID: 204326834988144971}
   ENM: {fileID: 3924912730717115294}
   ES: {fileID: 5576671443699179463}
   MA: {fileID: 6410161540169633494}
   RA: {fileID: 4407951992496140222}
-  player: {fileID: 0}
   RCE: {fileID: 7497554269117235723}
   distance: 0
 --- !u!114 &204326834988144971
@@ -175,8 +207,10 @@ MonoBehaviour:
   life: 50
   damage: 10
   StopDistace: 0
+  attackColdown: 5
   isMele: 0
   isDeath: 0
+  canShoot: 1
 --- !u!114 &6410161540169633494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dbf7e365978c245b43e4cfbd47695e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 2680491186725336653}
+  bullet: {fileID: 8882674662791404356, guid: e0215e65fea893c438367eff76ef1f6b, type: 3}
+  bulletSpeed: 0
 --- !u!114 &7497554269117235723
 MonoBehaviour:
   m_ObjectHideFlags: 0
