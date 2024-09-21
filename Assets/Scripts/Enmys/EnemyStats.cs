@@ -1,3 +1,4 @@
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -5,15 +6,24 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private int life;
     [SerializeField] private int damage;
     [SerializeField] private float StopDistace;
+    [SerializeField] private float attackColdown;
     [SerializeField] private bool isMele;
     [SerializeField] private bool isDeath;
+    [SerializeField] private bool canShoot;
 
-    public void TakeDamage(int damage)
+    public int Damage
     {
-        life -= damage;
-        if(life < 0)
+        get
         {
-            life = 0;
+            return damage;
+        }
+        set
+        {
+            life -= value;
+            if(life<1)
+            {
+            isDeath = true;
+            }
         }
     }
 
@@ -37,6 +47,26 @@ public class EnemyStats : MonoBehaviour
         get 
         {
             return StopDistace;
+        }
+    }
+
+    public bool CanShoot
+    {
+        get 
+        {
+            return canShoot;
+        }
+        set
+        {
+            canShoot = value;
+        }
+    }
+
+    public float AttackColdown
+    {
+        get
+        {
+            return attackColdown;
         }
     }
 }

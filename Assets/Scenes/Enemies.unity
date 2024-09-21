@@ -1280,6 +1280,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713073734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1931840727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931840728}
+  m_Layer: 7
+  m_Name: SPawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931840728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931840727}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1938158857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1938158857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3341247702014208469, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+  m_PrefabInstance: {fileID: 1855284191050884876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2030380845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1377,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 54a59d0cde4fdf64fa2ecf7a0daa2fcc, type: 2}
   m_BuildHeightMesh: 0
@@ -1498,13 +1534,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4407951992496140222, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 2147895002730076875, guid: abf2704061c8468499b97e6b20e1db76, type: 3}
+    - target: {fileID: 4407951992496140222, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1931840727}
+    - target: {fileID: 5576671443699179463, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8233172744013609969, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: m_Name
       value: RangeEnemyCube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3341247702014208469, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1931840728}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
 --- !u!1001 &3788200404639716232
@@ -1620,6 +1671,10 @@ PrefabInstance:
       propertyPath: levelMidPoint
       value: 
       objectReference: {fileID: 647271083}
+    - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
+      propertyPath: fogRevealers.Array.data[0].sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: fogRevealers.Array.data[0].revealerTransform
       value: 

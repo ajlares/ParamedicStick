@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   damage: 5
-  StopDistace: 0
+  StopDistace: 1
   isMele: 1
   isDeath: 0
 --- !u!114 &5287548549647917150
