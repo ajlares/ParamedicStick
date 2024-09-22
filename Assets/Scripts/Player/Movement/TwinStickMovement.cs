@@ -6,7 +6,7 @@ using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent(typeof(CharacterController))] //Añade esto automaticamente en cuanto se lo assignas al player
+[RequireComponent(typeof(CharacterController))] //Aï¿½ade esto automaticamente en cuanto se lo assignas al player
 [RequireComponent(typeof(PlayerInput))]
 public class TwinStickMovement : MonoBehaviour
 {
@@ -60,7 +60,7 @@ public class TwinStickMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        Vector3 move = new Vector3(movement.x, 0, movement.y); //Si metemos cualquier input lo leeremos en el Vector 3 llamado "move"
+        Vector3 move = new Vector3(movement.x, gravityvalue, movement.y); //Si metemos cualquier input lo leeremos en el Vector 3 llamado "move"
         controller.Move(move *Time.deltaTime * playerSpeed);
 
         //Lo siguiente es para brincar, no lo vamos a usar. Pero en caso de que si, lo pongo comentado

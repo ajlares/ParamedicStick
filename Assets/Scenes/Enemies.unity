@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 254749924}
   - component: {fileID: 254749923}
   - component: {fileID: 254749927}
+  - component: {fileID: 254749928}
   m_Layer: 6
   m_Name: PlayerCube
   m_TagString: Player
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254749922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47726f8e87270944a244bea55f6f142, type: 3}
   m_Name: 
@@ -348,6 +349,19 @@ MonoBehaviour:
   acceleration: 6
   speedXLimit: 6
   speedYLimit: 6
+--- !u!114 &254749928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254749922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addd9d86a85223a4980e34ec769a4392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
 --- !u!1 &385030223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1355,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 54a59d0cde4fdf64fa2ecf7a0daa2fcc, type: 2}
   m_BuildHeightMesh: 0
@@ -1464,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341247702014208469, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.498
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3341247702014208469, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1502,6 +1516,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangeEnemyCube
       objectReference: {fileID: 0}
+    - target: {fileID: 8233172744013609969, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552735968526027788, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: m_Center.y
+      value: -0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1515,6 +1537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4670188186281349923, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4671213573124373950, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
       propertyPath: m_Name
       value: MeleeEnemyCube
@@ -1525,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5123942410909985729, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.498
+      value: 0.865
       objectReference: {fileID: 0}
     - target: {fileID: 5123942410909985729, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1616,10 +1642,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FogWar
       objectReference: {fileID: 0}
+    - target: {fileID: 5739075014534475209, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: levelMidPoint
       value: 
       objectReference: {fileID: 647271083}
+    - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
+      propertyPath: fogRevealers.Array.data[0].sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: fogRevealers.Array.data[0].revealerTransform
       value: 
@@ -1636,8 +1670,8 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 385030224}
+  - {fileID: 7519911688968831899}
   - {fileID: 2030380846}
   - {fileID: 254749926}
   - {fileID: 3788200404639716232}
   - {fileID: 1855284191050884876}
-  - {fileID: 7519911688968831899}
