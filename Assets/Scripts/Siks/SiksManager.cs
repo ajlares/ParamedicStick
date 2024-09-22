@@ -10,20 +10,19 @@ public class SiksManager : MonoBehaviour
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private bool canPlay;
     
-
     private void Update() 
     {
         if(isStayPlayer)
         {
             if(indextime >= healTime)
             {
-                Debug.Log("c curo");
                 if(canPlay)
                 {
                     canPlay = false;
                     particles.Play();
+                    GameManager.instance.HealAcount = 1;
                 }
-                Destroy(parent,1);
+                Destroy(parent,.5f);
 
             }
             indextime += Time.deltaTime;
@@ -38,7 +37,6 @@ public class SiksManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player");
             isStayPlayer = true;
         }    
     }
@@ -47,7 +45,6 @@ public class SiksManager : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             isStayPlayer = false;
-            Debug.Log("Player");
         }    
     }
 }
