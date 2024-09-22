@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject MeleAttackHitbox;
     [SerializeField] private EnemyAnimationController EAC;
     [SerializeField] private EnemyNavMesh ENM;
     [SerializeField] private EnemyStats ES;
@@ -18,6 +19,10 @@ public class EnemyManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         InitSetup();
+        if(ES.IsMele)
+        {
+            MeleAttackHitbox.GetComponent<MeleAplyDamage>().Damage = ES.Damage;
+        }
     }
 
     private void Update() 
@@ -36,7 +41,11 @@ public class EnemyManager : MonoBehaviour
                 else
                 {
                     ENM.SetEnable(false);
-                    //att    
+                    if(ES.CanAttack)
+                    {
+                        // mele attack
+                        StartCoroutine(MeleAttackCall());   
+                    } 
                 }
                  
             }
@@ -46,7 +55,7 @@ public class EnemyManager : MonoBehaviour
                 RCE.CreateRay(player, ES.RangeMaxDistance);
                 if(RCE.IsPlayer)
                 {
-                    if(ES.CanShoot)
+                    if(ES.CanAttack)
                     {
                         StartCoroutine(AttackRangeCall());
                     }
@@ -83,13 +92,26 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator AttackRangeCall()
     {
-        ES.CanShoot = false;
+        ES.CanAttack = false;
         yield return new WaitForSeconds(0.1f);
         ENM.SetEnable(false);
         RA.Shoot(ES.Damage, player);
         yield return new WaitForSeconds(ES.AttackColdown);
-        ES.CanShoot = true;
+        ES.CanAttack = true;
         yield return null;
+    }
+
+    IEnumerator MeleAttackCall()
+    {
+        Debug.Log("attack");
+        ES.CanAttack = false;
+        yield return new WaitForSeconds(0.2f);
+        MeleAttackHitbox.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        MeleAttackHitbox.SetActive(false);
+        yield return new WaitForSeconds(ES.AttackColdown);
+        yield return null;
+        ES.CanAttack = true;
     }
 
     #region getersYSeters

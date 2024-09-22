@@ -1189,6 +1189,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195835519}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1672974069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672974070}
+  - component: {fileID: 1672974072}
+  - component: {fileID: 1672974071}
+  m_Layer: 7
+  m_Name: MeleHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1672974070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672974069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1746014079}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1672974071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672974069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1672974072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672974069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf70f13ac4f2b57499e0288d621b4026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &1713073734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1361,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713073734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1746014079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5123942410909985729, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+  m_PrefabInstance: {fileID: 3788200404639716232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2030380845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1585,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5576671443699179463, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
+      propertyPath: canAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576671443699179463, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: rangeMaxDistance
       value: 30
       objectReference: {fileID: 0}
@@ -1534,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233172744013609969, guid: 8db0ca7186c3392419f0ea2243113ef5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1549,6 +1625,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1528943322845015425, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: canAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528943322845015425, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: attackColdown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051493814628040818, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645274071030301281, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      propertyPath: MeleAttackHitbox
+      value: 
+      objectReference: {fileID: 1672974069}
     - target: {fileID: 4082911004786137398, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
       propertyPath: layerMask.m_Bits
       value: 1600
@@ -1603,7 +1695,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5123942410909985729, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672974070}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57400309484d96842a845bd0a7bfb409, type: 3}
 --- !u!1001 &7519911688968831899

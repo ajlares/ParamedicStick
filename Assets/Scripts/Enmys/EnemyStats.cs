@@ -10,7 +10,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private float attackColdown;
     [SerializeField] private bool isMele;
     [SerializeField] private bool isDeath;
-    [SerializeField] private bool canShoot;
+    [SerializeField] private bool canAttack;
 
     public int Life
     {
@@ -58,15 +58,15 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public bool CanShoot
+    public bool CanAttack
     {
         get 
         {
-            return canShoot;
+            return canAttack;
         }
         set
         {
-            canShoot = value;
+            canAttack = value;
         }
     }
 

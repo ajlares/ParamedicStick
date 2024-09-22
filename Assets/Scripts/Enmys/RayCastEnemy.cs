@@ -16,13 +16,11 @@ public class RayCastEnemy : MonoBehaviour
         {
             if(hit.transform.gameObject.CompareTag("Player"))
             {
-                Debug.Log(hit.transform.gameObject);
-                 Debug.DrawRay(transform.position ,target.transform.position - transform.position, Color.red);
+                Debug.DrawRay(transform.position ,target.transform.position - transform.position, Color.red);
                 isPlayer = true;
             }
             else
             {
-                Debug.Log(hit.transform.gameObject);
                 Debug.DrawRay(transform.position ,target.transform.position - transform.position, Color.white);
                 isPlayer = false;
             }
