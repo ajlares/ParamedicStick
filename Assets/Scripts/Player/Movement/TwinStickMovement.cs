@@ -11,8 +11,7 @@ using UnityEngine.InputSystem;
 public class TwinStickMovement : MonoBehaviour
 {
     [SerializeField] private float playerSpeed;
-    // que se active si se llega a usar me da amsiedad;
-    //[SerializeField] private float gravityvalue = -9.81f; //Asumo que esto es por si queremos que salte pero pues no creo que sea el caso
+    [SerializeField] private float gravityvalue = -9.81f; //Asumo que esto es por si queremos que salte pero pues no creo que sea el caso
     [SerializeField] private float controllerDeadzone = 0.1f;
     [SerializeField] private float gamepadRotateSmooothing = 1000f;
 
@@ -61,7 +60,7 @@ public class TwinStickMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        Vector3 move = new Vector3(movement.x, 0, movement.y); //Si metemos cualquier input lo leeremos en el Vector 3 llamado "move"
+        Vector3 move = new Vector3(movement.x, gravityvalue, movement.y); //Si metemos cualquier input lo leeremos en el Vector 3 llamado "move"
         controller.Move(move *Time.deltaTime * playerSpeed);
 
         //Lo siguiente es para brincar, no lo vamos a usar. Pero en caso de que si, lo pongo comentado
