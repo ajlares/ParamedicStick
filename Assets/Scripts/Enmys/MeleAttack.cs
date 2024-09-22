@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MeleAttack : MonoBehaviour
 {
+    
     public void attack(GameObject hitbox, int damage)
     {
-        
+
     }
 }

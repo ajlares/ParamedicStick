@@ -11,6 +11,7 @@ public class MeleAplyDamage : MonoBehaviour
             other.GetComponent<PlayerStats>().Life = Damage;
         }    
     }
+    
     public int Damage
     {
         get

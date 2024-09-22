@@ -103,10 +103,10 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator MeleAttackCall()
     {
-        Debug.Log("attack");
         ES.CanAttack = false;
         yield return new WaitForSeconds(0.2f);
         MeleAttackHitbox.SetActive(true);
+        player.GetComponent<PlayerStats>().Life = ES.Damage;
         yield return new WaitForSeconds(0.2f);
         MeleAttackHitbox.SetActive(false);
         yield return new WaitForSeconds(ES.AttackColdown);
