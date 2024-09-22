@@ -31,7 +31,7 @@ public class SpawnerManager : MonoBehaviour
     {
         int rSpawn = Random.Range(0, spawners.Count);
         int rEnemy = Random.Range(0,enemys.Count);
-        if(0 == Random.Range(0,1))
+        if(0 == Random.Range(0,2))
         {
 
             Debug.Log("0, sale un enemigo");

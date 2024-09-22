@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject MeleAttackHitbox;
-    [SerializeField] private EnemyAnimationController EAC;
-    [SerializeField] private EnemyNavMesh ENM;
-    [SerializeField] private EnemyStats ES;
-    [SerializeField] private MeleAttack MA;
-    [SerializeField] private  RangeAttack RA;
-    [SerializeField] private RayCastEnemy RCE;
-    [SerializeField] private float distance;
+    [SerializeField] private GameObject player; // player
+    [SerializeField] private GameObject MeleAttackHitbox; //hitbox donde hace daño el enemigo mele 
+    [SerializeField] private EnemyAnimationController EAC; // controlador de animaciones de enemigos
+    [SerializeField] private EnemyNavMesh ENM; // controlador del movimiento del enemigo
+    [SerializeField] private EnemyStats ES; // estadisticas del enemigo
+    [SerializeField] private MeleAttack MA; // script principal de ataque del mele
+    [SerializeField] private  RangeAttack RA; // script principal de ataque del range
+    [SerializeField] private RayCastEnemy RCE; // hace un rayo a la direccion del jugador
+    [SerializeField] private float distance; // es la distancia actual del enemigo al jugador 
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        // encuentra al player en escena
+        player = GameObject.FindGameObjectWithTag("Player"); 
+        
         InitSetup();
         if(ES.IsMele)
         {
@@ -26,9 +30,10 @@ public class EnemyManager : MonoBehaviour
     }
 
     private void Update() 
-    {
+    { 
         distance = Vector3.Distance(this.transform.position, player.transform.position);
-        transform.LookAt(player.transform.position);
+        var rotation = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+        transform.LookAt(rotation);
         if(!ES.IsDeath)
         {
             if(ES.IsMele)
