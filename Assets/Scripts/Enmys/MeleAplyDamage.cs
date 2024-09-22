@@ -8,6 +8,7 @@ public class MeleAplyDamage : MonoBehaviour
         Debug.Log(other.gameObject);
         if(other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("damage");
             other.GetComponent<PlayerStats>().Life = Damage;
         }    
     }

@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private EnemyAnimationController EAC; // controlador de animaciones de enemigos
     [SerializeField] private EnemyNavMesh ENM; // controlador del movimiento del enemigo
     [SerializeField] private EnemyStats ES; // estadisticas del enemigo
-    [SerializeField] private MeleAttack MA; // script principal de ataque del mele
     [SerializeField] private  RangeAttack RA; // script principal de ataque del range
     [SerializeField] private RayCastEnemy RCE; // hace un rayo a la direccion del jugador
     [SerializeField] private float distance; // es la distancia actual del enemigo al jugador 
