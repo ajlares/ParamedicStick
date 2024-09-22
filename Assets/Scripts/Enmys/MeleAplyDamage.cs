@@ -6,7 +6,7 @@ public class MeleAplyDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject);
-        if(other.GetComponent<GameObject>().CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<PlayerStats>().Life = Damage;
         }    

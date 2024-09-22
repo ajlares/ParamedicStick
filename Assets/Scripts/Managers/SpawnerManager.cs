@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +17,11 @@ public class SpawnerManager : MonoBehaviour
 
     private void Start()
     {
+        // inicia la corrutina de spawn
         StartCoroutine(SpawnSystem());
     }
 
+    // corrutina de spawn
     IEnumerator SpawnSystem()
     {
         Spawn();
@@ -26,20 +29,23 @@ public class SpawnerManager : MonoBehaviour
         StartCoroutine(SpawnSystem());
         yield return null;
     }
-
+    
+    // sistema de spawn
     private void Spawn()
     {
+        // genera numero random para selecionar el spawn 
         int rSpawn = Random.Range(0, spawners.Count);
-        int rEnemy = Random.Range(0,enemys.Count);
-        if(0 == Random.Range(0,1))
+        // por un numero random genera o un enfermo o un enemigo
+        if(0 == Random.Range(0,2))
         {
-
-            Debug.Log("0, sale un enemigo");
+            // genera un numero para el enemigo
+            int rEnemy = Random.Range(0,enemys.Count);
+            // lo espawnea
             Instantiate(enemys[rEnemy],spawners[rSpawn].transform);
         }
         else
         {
-            Debug.Log("1, sale un enfermos");
+            // spawnea un enfermo
             Instantiate(sicks,spawners[rSpawn].transform);
         }
     }
