@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
@@ -8,6 +6,6 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void CallAnim(int num)
     {
-        
+        animControler.SetInteger("choice",num);
     }
 }

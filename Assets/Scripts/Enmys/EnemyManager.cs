@@ -46,6 +46,7 @@ public class EnemyManager : MonoBehaviour
                 if(distance > ES.StopDistance)
                 {
                     // sigue al jugador
+                    EAC.CallAnim(1);
                     Walk();
                 }
                 // si no es asi
@@ -122,7 +123,7 @@ public class EnemyManager : MonoBehaviour
     // corutina del ataque de range
     IEnumerator AttackRangeCall()
     {
-        ES.CanAttack = false;
+        ES.CanAttack = false;        
         yield return new WaitForSeconds(0.1f);
         ENM.SetEnable(false);
         RA.Shoot(ES.Damage, player);
@@ -135,13 +136,14 @@ public class EnemyManager : MonoBehaviour
     IEnumerator MeleAttackCall()
     {
         ES.CanAttack = false;
-        yield return new WaitForSeconds(0.2f);
+        EAC.CallAnim(2);
+        yield return new WaitForSeconds(0.4f);
         MeleAttackHitbox.SetActive(true);
-        //player.GetComponent<PlayerStats>().Life = ES.Damage;
         yield return new WaitForSeconds(0.2f);
         MeleAttackHitbox.SetActive(false);
         yield return new WaitForSeconds(ES.AttackColdown);
         yield return null;
+        EAC.CallAnim(0);
         ES.CanAttack = true;
     }
 
