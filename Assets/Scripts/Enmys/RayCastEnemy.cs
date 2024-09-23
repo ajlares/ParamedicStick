@@ -1,26 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RayCastEnemy : MonoBehaviour
 {
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private bool isPlayer;
-    public void CreateRay(GameObject target)
+    [SerializeField] private GameObject spawn;
+    
+    public void CreateRay(GameObject target, int MaxDistance)
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, target.transform.position - transform.position);    
-        Debug.DrawRay(ray.origin,ray.direction*30f, Color.green);
-
-        if(Physics.Raycast(ray, out hit, playerLayer))
+        Ray ray = new Ray(spawn.transform.position, target.transform.position - spawn.transform.position);    
+        if(Physics.Raycast(ray, out hit, MaxDistance, layerMask))
         {
-            Debug.Log(hit.transform.gameObject.tag);
+            Debug.Log("raycast");
             if(hit.transform.gameObject.CompareTag("Player"))
             {
+                Debug.DrawRay(spawn.transform.position ,target.transform.position - spawn.transform.position, Color.red);
                 isPlayer = true;
             }
             else
             {
+                Debug.DrawRay(spawn.transform.position ,target.transform.position - spawn.transform.position, Color.white);
                 isPlayer = false;
             }
         }
