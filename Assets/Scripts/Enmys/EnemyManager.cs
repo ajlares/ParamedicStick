@@ -45,7 +45,8 @@ public class EnemyManager : MonoBehaviour
                 // si la distancia actual es menor a la distancia de parar hace algo
                 if(distance > ES.StopDistance)
                 {
-                    // sigue al jugador
+                    // sigue al jugador+
+                    ES.CanAttack = true;
                     EAC.CallAnim(1);
                     Walk();
                 }
@@ -58,7 +59,8 @@ public class EnemyManager : MonoBehaviour
                     if(ES.CanAttack)
                     {
                         // mele attack
-                        StartCoroutine(MeleAttackCall());   
+                        ES.CanAttack = false;
+                        EAC.CallAnim(2);
                     } 
                 }
                  
@@ -82,6 +84,7 @@ public class EnemyManager : MonoBehaviour
                 // si no lo tiene en la mira camina
                 else
                 {
+                    EAC.CallAnim(1);
                     Walk();
                 }
             }
@@ -123,28 +126,25 @@ public class EnemyManager : MonoBehaviour
     // corutina del ataque de range
     IEnumerator AttackRangeCall()
     {
+        EAC.CallAnim(2);
         ES.CanAttack = false;        
         yield return new WaitForSeconds(0.1f);
         ENM.SetEnable(false);
         RA.Shoot(ES.Damage, player);
+        EAC.CallAnim(0);
         yield return new WaitForSeconds(ES.AttackColdown);
         ES.CanAttack = true;
         yield return null;
     }
 
     // corutina del ataque a mele
-    IEnumerator MeleAttackCall()
+    public void OnHitbox()
     {
-        ES.CanAttack = false;
-        EAC.CallAnim(2);
-        yield return new WaitForSeconds(0.4f);
         MeleAttackHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
+    }
+    public void OfHitbox()
+    {
         MeleAttackHitbox.SetActive(false);
-        yield return new WaitForSeconds(ES.AttackColdown);
-        yield return null;
-        EAC.CallAnim(0);
-        ES.CanAttack = true;
     }
 
     #region getersYSeters
