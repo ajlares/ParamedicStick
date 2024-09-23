@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     private void Start() 
     {
-                Time.timeScale = 1;
+        Time.timeScale = 1;
     }
     private void UpdateText()
     {
@@ -20,11 +20,11 @@ public class UIManager : MonoBehaviour
     }   
     public void PauseGame()
     {
-
+        Time.timeScale = 0;
     }
     public void ResumeGame()
     {
-
+        Time.timeScale = 1;
     }
     public void OptionsPanel()
     {
