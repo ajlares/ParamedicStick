@@ -95,6 +95,7 @@ public class EnemyManager : MonoBehaviour
         {
                 ENM.SetEnable(false);
                 Instantiate(meat,transform.position,Quaternion.identity);
+                GameManager.instance.KillsAcount = 1;
                 Destroy(gameObject);
 
         }

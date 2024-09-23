@@ -685,7 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2281484177644774972}
   bullet: {fileID: 8882674662791404356, guid: e0215e65fea893c438367eff76ef1f6b, type: 3}
-  bulletSpeed: 50
+  bulletSpeed: 10
 --- !u!195 &4291233454220037311
 NavMeshAgent:
   m_ObjectHideFlags: 0
