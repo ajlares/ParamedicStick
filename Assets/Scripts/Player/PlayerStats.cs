@@ -2,11 +2,24 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private int life;
+    [SerializeField] private float life;
     [SerializeField] private bool isDeath;
     [SerializeField] private int damage;
 
-    public int Life
+    public static PlayerStats instance;
+    private void Awake() 
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy( this);
+        }    
+    }
+
+    public float Life
     {
         get
         {
@@ -15,6 +28,7 @@ public class PlayerStats : MonoBehaviour
         set
         {
             life -= value;
+            UIManager.instance.UpdateUI();
             // esto puede que nos sirva para la muerte :p
             if(life<1)
             {

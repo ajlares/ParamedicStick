@@ -1,18 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
+
 
 public class UIManager : MonoBehaviour
 {
+    // UI  variables
+    [SerializeField] Image lifeImage;
+
+    public static UIManager instance;
+    private void Awake() 
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy( this);
+        }    
+    }
+
     private void Start() 
     {
         Time.timeScale = 1;
     }
-    private void UpdateText()
+    public void UpdateUI()
     {
-
+        Debug.Log("updateUI");
+        lifeAmount();
     }
     public void PauseManager()
     {
@@ -45,5 +64,10 @@ public class UIManager : MonoBehaviour
     public void quitGame()
     {
         Application.Quit ();
+    }
+
+    public void lifeAmount()
+    {
+        lifeImage.fillAmount = PlayerStats.instance.Life/100;
     }
 }

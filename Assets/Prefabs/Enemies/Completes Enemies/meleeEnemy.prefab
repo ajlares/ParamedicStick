@@ -490,9 +490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   damage: 15
-  StopDistace: 1.5
+  StopDistace: 2
   rangeMaxDistance: 0
-  attackColdown: 2
+  attackColdown: 4
   isMele: 1
   isDeath: 0
   canAttack: 1
