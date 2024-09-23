@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Android;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 
@@ -26,6 +22,11 @@ public class TwinStickMovement : MonoBehaviour
 
     private PlayerControls playerControls;
     private PlayerInput playerInput;
+
+    // yo te escribi estas variables
+
+    [SerializeField] private PlayerStats PS;
+    [SerializeField] private Gun gun;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -45,6 +46,14 @@ public class TwinStickMovement : MonoBehaviour
 
     
     void Update()
+    {
+        Movement();
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            gun.Shoot(PS.Damage);
+        }
+    }
+    void Movement()
     {
         HandleInput();
         HandleMovement();
