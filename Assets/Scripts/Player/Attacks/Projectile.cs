@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     //Puede que este codigo no haga falta despues
-    public float life = 3;
+    [SerializeField] private float lifeTime = 3;
 
     private void Awake()
     {
-        Destroy(gameObject, life);
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -19,7 +17,7 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            //collision.gameObject.GetComponent<EnemyStats>().Life = PlayerStats
+            collision.gameObject.GetComponent<EnemyStats>().Life = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().Damage;
             Destroy(gameObject) ;
         }
         
