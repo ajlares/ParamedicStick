@@ -96,6 +96,7 @@ public class EnemyManager : MonoBehaviour
             ENM.SetEnable(false);
             // te dice que murio
             Debug.Log("el chavon murio");
+            Destroy(gameObject);
         }
     }
 

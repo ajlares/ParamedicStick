@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     //Puede que este codigo no haga falta despues
     [SerializeField] private float lifeTime = 3;
+    [SerializeField] private int damage ;
 
     private void Awake()
     {
@@ -21,5 +22,16 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject) ;
         }
         
+    }
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+        set
+        {
+            damage = value;
+        }
     }
 }
