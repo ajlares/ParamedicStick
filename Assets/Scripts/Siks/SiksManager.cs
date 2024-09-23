@@ -22,7 +22,7 @@ public class SiksManager : MonoBehaviour
                     particles.Play();
                     GameManager.instance.HealAcount = 1;
                 }
-                Destroy(parent,.5f);
+                Destroy(parent,.25f);
 
             }
             indextime += Time.deltaTime;
