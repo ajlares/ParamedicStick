@@ -1,8 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
-    // aqui se van a controlar las animaciones finales
+    [SerializeField] private Animator animControler;
+
+    public void CallAnim(int num)
+    {
+        animControler.SetInteger("choice",num);
+    }
 }
