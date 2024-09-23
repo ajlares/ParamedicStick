@@ -47,13 +47,17 @@ public class TwinStickMovement : MonoBehaviour
     
     void Update()
     {
-        HandleInput();
-        HandleMovement();
-        HandleRotation();
+        Movement();
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             gun.Shoot(PS.Damage);
         }
+    }
+    void Movement()
+    {
+        HandleInput();
+        HandleMovement();
+        HandleRotation();
     }
 
     void HandleInput()

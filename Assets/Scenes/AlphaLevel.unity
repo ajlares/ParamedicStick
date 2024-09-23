@@ -3944,7 +3944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: drawGizmos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7968505490767340152, guid: 8bff152d28dc8db43b44896c4fe6eab3, type: 3}
       propertyPath: fogPlaneAlpha

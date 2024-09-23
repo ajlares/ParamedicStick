@@ -16,6 +16,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private  RangeAttack RA; // script principal de ataque del range
     [SerializeField] private RayCastEnemy RCE; // hace un rayo a la direccion del jugador
     [SerializeField] private float distance; // es la distancia actual del enemigo al jugador 
+    [SerializeField] private ParticleSystem meat;// sistema de particulas antes de la muerte
 
     private void Start()
     {
@@ -92,11 +93,10 @@ public class EnemyManager : MonoBehaviour
         // si esta muerto
         else
         {
-            // deja de caminar
-            ENM.SetEnable(false);
-            // te dice que murio
-            Debug.Log("el chavon murio");
-            Destroy(gameObject);
+                ENM.SetEnable(false);
+                Instantiate(meat,transform.position,Quaternion.identity);
+                Destroy(gameObject);
+
         }
     }
 
