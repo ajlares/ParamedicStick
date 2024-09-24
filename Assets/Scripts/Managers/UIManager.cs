@@ -1,15 +1,14 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Unity.VisualScripting;
-
 
 public class UIManager : MonoBehaviour
 {
     // UI  variables
     [SerializeField] Image lifeImage;
+    [SerializeField] TextMeshProUGUI killText;
+    [SerializeField] TextMeshProUGUI healtsText;
 
     public static UIManager instance;
     private void Awake() 
@@ -27,11 +26,13 @@ public class UIManager : MonoBehaviour
     private void Start() 
     {
         Time.timeScale = 1;
+        UpdateUI();
     }
     public void UpdateUI()
     {
         Debug.Log("updateUI");
         lifeAmount();
+        UpdateTexts();
     }
     public void PauseManager()
     {
@@ -78,6 +79,11 @@ public class UIManager : MonoBehaviour
 
     public void lifeAmount()
     {
-        lifeImage.fillAmount = PlayerStats.instance.Life/100;
+        lifeImage.fillAmount = PlayerStats.instance.Life/PlayerStats.instance.MaxLife;
+    }
+    public void UpdateTexts()
+    {
+        killText.text = GameManager.instance.KillsAcount.ToString();
+        healtsText.text = GameManager.instance.HealAcount.ToString();
     }
 }

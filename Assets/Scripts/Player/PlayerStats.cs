@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] private  float maxLife;
     [SerializeField] private float life;
     [SerializeField] private bool isDeath;
     [SerializeField] private int damage;
@@ -16,7 +17,8 @@ public class PlayerStats : MonoBehaviour
         else
         {
             Destroy( this);
-        }    
+        }
+        life = maxLife;    
     }
 
     public float Life
@@ -34,6 +36,13 @@ public class PlayerStats : MonoBehaviour
                 IsDeath = true;
             }
             Debug.Log("Vida actual del jugador: " + life);
+        }
+    }
+    public float MaxLife
+    {
+        get
+        {
+            return maxLife;
         }
     }
 
