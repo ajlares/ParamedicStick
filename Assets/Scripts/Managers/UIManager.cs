@@ -36,7 +36,12 @@ public class UIManager : MonoBehaviour
     public void PauseManager()
     {
         
-    }   
+    }
+    
+    public void DeathPanel()
+    {
+        Time.timeScale = 0;
+    }
     public void PauseGame()
     {
         Time.timeScale = 0;

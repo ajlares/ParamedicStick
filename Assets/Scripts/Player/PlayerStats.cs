@@ -29,7 +29,6 @@ public class PlayerStats : MonoBehaviour
         {
             life -= value;
             UIManager.instance.UpdateUI();
-            // esto puede que nos sirva para la muerte :p
             if(life<1)
             {
                 IsDeath = true;
