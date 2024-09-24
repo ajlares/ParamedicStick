@@ -65,6 +65,11 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit ();
     }
+    
+    public void LoseGame()
+    {
+        Time.timeScale = 0;
+    }
 
     public void lifeAmount()
     {
