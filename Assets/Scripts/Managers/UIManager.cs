@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image lifeImage;
     [SerializeField] TextMeshProUGUI killText;
     [SerializeField] TextMeshProUGUI healtsText;
+    [SerializeField] GameObject PausePanel;
+    [SerializeField] bool isPause;
 
     public static UIManager instance;
     private void Awake() 
@@ -28,6 +30,20 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         UpdateUI();
     }
+        private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!isPause)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
+        }
+    }
     public void UpdateUI()
     {
         Debug.Log("updateUI");
@@ -46,10 +62,14 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        isPause = true;
+        PausePanel.SetActive(true);
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        isPause = false;
+        PausePanel.SetActive(false);
     }
     public void OptionsPanel()
     {
