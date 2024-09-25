@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI killText;
     [SerializeField] TextMeshProUGUI healtsText;
     [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject UIPausePanel;
+    [SerializeField] GameObject UIOptionsPanel;
     [SerializeField] bool isPause;
+    [SerializeField] bool isOPtions;
 
     public static UIManager instance;
     private void Awake() 
@@ -29,6 +32,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         UpdateUI();
+        ResumeGame();
     }
     private void Update()
     {
@@ -42,6 +46,9 @@ public class UIManager : MonoBehaviour
             {
                 ResumeGame();
             }
+                UIOptionsPanel.SetActive(false);
+                UIPausePanel.SetActive(true);
+                isOPtions = isOPtions = false;
         }
     }
     public void UpdateUI()
@@ -49,9 +56,22 @@ public class UIManager : MonoBehaviour
         lifeAmount();
         UpdateTexts();
     }
-    public void PauseManager()
+    public void OptionsManager()
     {
-        
+        if(isOPtions)
+        {
+            Debug.Log("options panel off");
+            UIOptionsPanel.SetActive(false);
+            UIPausePanel.SetActive(true);
+            isOPtions = isOPtions = false;
+        }
+        else
+        {
+            Debug.Log("options panel on");
+            UIOptionsPanel.SetActive(true);
+            UIPausePanel.SetActive(false);
+            isOPtions = isOPtions = true;
+        }
     }
     
     public void DeathPanel()
@@ -69,10 +89,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         isPause = false;
         PausePanel.SetActive(false);
-    }
-    public void OptionsPanel()
-    {
-
     }
 
     public void RestartScene()
@@ -104,5 +120,12 @@ public class UIManager : MonoBehaviour
     {
         killText.text = GameManager.instance.KillsAcount.ToString();
         healtsText.text = GameManager.instance.HealAcount.ToString();
+    }
+    public bool IsPause
+    {
+        get
+        {
+            return isPause;
+        }
     }
 }

@@ -72,7 +72,7 @@ MonoBehaviour:
   parent: {fileID: 8827685751440664161}
   particles1: {fileID: 4938095755617958530, guid: 2e79f16be10fbd14f8d5ef191f8db4aa, type: 3}
   particles2: {fileID: 4438542502342927772}
-  canPlay: 1
+  reviveSound: {fileID: 2597072130643537833}
 --- !u!1001 &7657785157618886024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,26 +84,6 @@ PrefabInstance:
     - target: {fileID: 6331275906715107345, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
       propertyPath: m_Name
       value: Area_heal_green
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331275906715107345, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331275906715107348, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331275906715107350, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.23102
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331275906715107350, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.23102
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331275906715107350, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.23102
       objectReference: {fileID: 0}
     - target: {fileID: 6331275906715107350, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,23 +125,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6331275908246812899, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7399813553368514391, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7399813554394967923, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
+--- !u!82 &2597072130643537833 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5642812768847579681, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
+  m_PrefabInstance: {fileID: 7657785157618886024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &4438542502342927772 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6331275906715107348, guid: 690951f4781b19649bc5c7892414ff37, type: 3}
@@ -180,6 +153,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ce2b000a37c83f149b717512910f35b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4075367
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce2b000a37c83f149b717512910f35b3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4075367
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce2b000a37c83f149b717512910f35b3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4075367
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce2b000a37c83f149b717512910f35b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4529948
