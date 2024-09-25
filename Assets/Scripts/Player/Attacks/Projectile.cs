@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //Puede que este codigo no haga falta despues
     [SerializeField] private float lifeTime = 3;
     [SerializeField] private int damage ;
     [SerializeField] private List<AudioSource> sounds;
