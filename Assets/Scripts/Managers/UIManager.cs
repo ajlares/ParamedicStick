@@ -63,14 +63,14 @@ public class UIManager : MonoBehaviour
             Debug.Log("options panel off");
             UIOptionsPanel.SetActive(false);
             UIPausePanel.SetActive(true);
-            isOPtions = isOPtions = true;
+            isOPtions = isOPtions = false;
         }
         else
         {
             Debug.Log("options panel on");
             UIOptionsPanel.SetActive(true);
             UIPausePanel.SetActive(false);
-            isOPtions = isOPtions = false;
+            isOPtions = isOPtions = true;
         }
     }
     
