@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI killText;
     [SerializeField] TextMeshProUGUI healtsText;
     [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject UIPausePanel;
+    [SerializeField] GameObject UIOptionsPanel;
     [SerializeField] bool isPause;
+    [SerializeField] bool isOPtions;
 
     public static UIManager instance;
     private void Awake() 
@@ -49,9 +52,12 @@ public class UIManager : MonoBehaviour
         lifeAmount();
         UpdateTexts();
     }
-    public void PauseManager()
+    public void OptionsManager()
     {
-        
+        if(isOPtions)
+        {
+
+        }
     }
     
     public void DeathPanel()
