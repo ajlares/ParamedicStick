@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         UpdateUI();
     }
-        private void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -46,7 +46,6 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateUI()
     {
-        Debug.Log("updateUI");
         lifeAmount();
         UpdateTexts();
     }
