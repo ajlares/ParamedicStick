@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject UIOptionsPanel;
     [SerializeField] bool isPause;
     [SerializeField] bool isOPtions;
+    [SerializeField] bool isMainMenu;
 
     public static UIManager instance;
     private void Awake() 
@@ -30,9 +31,12 @@ public class UIManager : MonoBehaviour
 
     private void Start() 
     {
+        if(!isMainMenu)
+        {
         Time.timeScale = 1;
         UpdateUI();
         ResumeGame();
+        }
     }
     private void Update()
     {
