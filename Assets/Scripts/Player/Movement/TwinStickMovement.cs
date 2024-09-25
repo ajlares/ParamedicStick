@@ -50,7 +50,7 @@ public class TwinStickMovement : MonoBehaviour
         if(!PS.IsDeath)
         {
             Movement();
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if(Input.GetKeyDown(KeyCode.Mouse0) && !UIManager.instance.IsPause)
             {
                 gun.Shoot(PS.Damage);
             }
