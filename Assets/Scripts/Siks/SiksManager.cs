@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SiksManager : MonoBehaviour
@@ -7,7 +6,8 @@ public class SiksManager : MonoBehaviour
     [SerializeField] private float healTime;
     [SerializeField] private float indextime;
     [SerializeField] private GameObject parent;
-    [SerializeField] private ParticleSystem particles;
+    [SerializeField] private ParticleSystem particles1;
+    [SerializeField] private ParticleSystem particles2;
     [SerializeField] private bool canPlay;
     
     private void Update() 
@@ -19,7 +19,7 @@ public class SiksManager : MonoBehaviour
                 if(canPlay)
                 {
                     canPlay = false;
-                    particles.Play();
+                    particles1.Play();
                     GameManager.instance.HealAcount = 1;
                 }
                 Destroy(parent,.25f);
@@ -37,6 +37,7 @@ public class SiksManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            particles2.Play();
             isStayPlayer = true;
         }    
     }
@@ -44,6 +45,7 @@ public class SiksManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            particles2.Stop();
             isStayPlayer = false;
         }    
     }

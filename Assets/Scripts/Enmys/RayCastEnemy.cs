@@ -12,7 +12,6 @@ public class RayCastEnemy : MonoBehaviour
         Ray ray = new Ray(spawn.transform.position, target.transform.position - spawn.transform.position);    
         if(Physics.Raycast(ray, out hit, MaxDistance, layerMask))
         {
-            Debug.Log("raycast");
             if(hit.transform.gameObject.CompareTag("Player"))
             {
                 Debug.DrawRay(spawn.transform.position ,target.transform.position - spawn.transform.position, Color.red);

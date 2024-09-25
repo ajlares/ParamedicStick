@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -8,12 +6,10 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
 
-    private void Update()
+    public void Shoot(int damage)
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
             var knife = Instantiate(bulletPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            knife.GetComponent<Projectile>().Damage = damage;
             knife.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * bulletSpeed;
-        }
     }
 }
