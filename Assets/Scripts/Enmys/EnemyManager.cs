@@ -90,7 +90,6 @@ public class EnemyManager : MonoBehaviour
         // si esta muerto
         else
         {
-            sounds[0].Play();
             ENM.SetEnable(false);
             Instantiate(meat,transform.position,Quaternion.identity);
             GameManager.instance.KillsAcount = 1;
@@ -130,7 +129,7 @@ public class EnemyManager : MonoBehaviour
         ES.CanAttack = false;        
         yield return new WaitForSeconds(0.1f);
         ENM.SetEnable(false);
-        sounds[1].Play();
+        sounds[0].Play();
         RA.Shoot(ES.Damage, player);
         EAC.CallAnim(0);
         yield return new WaitForSeconds(ES.AttackColdown);
@@ -141,7 +140,7 @@ public class EnemyManager : MonoBehaviour
     // corutina del ataque a mele
     public void OnHitbox()
     {
-        sounds[1].Play();
+        sounds[0].Play();
         MeleAttackHitbox.SetActive(true);
     }
     public void OfHitbox()
