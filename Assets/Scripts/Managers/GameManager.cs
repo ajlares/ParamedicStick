@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         set
         {
             healAcount += value;
+            UpdateCAll();
         }
     }
 
@@ -39,6 +40,12 @@ public class GameManager : MonoBehaviour
         set
         {
             killsAcount += value;
+            UpdateCAll();
         }
+    }
+
+    private void UpdateCAll()
+    {
+        UIManager.instance.UpdateUI();
     }
 }

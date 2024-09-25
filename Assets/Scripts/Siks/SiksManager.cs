@@ -8,7 +8,6 @@ public class SiksManager : MonoBehaviour
     [SerializeField] private GameObject parent;
     [SerializeField] private ParticleSystem particles1;
     [SerializeField] private ParticleSystem particles2;
-    [SerializeField] private bool canPlay;
     
     private void Update() 
     {
@@ -16,14 +15,9 @@ public class SiksManager : MonoBehaviour
         {
             if(indextime >= healTime)
             {
-                if(canPlay)
-                {
-                    canPlay = false;
-                    particles1.Play();
-                    GameManager.instance.HealAcount = 1;
-                }
-                Destroy(parent,.25f);
-
+                Instantiate(particles1,transform.position,Quaternion.identity);
+                GameManager.instance.HealAcount = 1;
+                Destroy(parent);
             }
             indextime += Time.deltaTime;
         }

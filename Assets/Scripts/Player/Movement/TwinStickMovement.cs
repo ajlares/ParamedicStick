@@ -47,10 +47,18 @@ public class TwinStickMovement : MonoBehaviour
     
     void Update()
     {
-        Movement();
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(!PS.IsDeath)
         {
-            gun.Shoot(PS.Damage);
+            Movement();
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                gun.Shoot(PS.Damage);
+            }
+        }
+        else
+        {
+            UIManager.instance.DeathPanel();
+            Destroy(gameObject);
         }
     }
     void Movement()
