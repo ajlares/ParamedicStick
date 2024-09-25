@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 10;
     [SerializeField] private int damage ;
-    [SerializeField] private List<AudioSource> sounds;
+    [SerializeField] private List<GameObject> sounds;
     private void Awake()
     {
         Destroy(gameObject, lifeTime);
@@ -15,12 +15,12 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Map"))
         {
-            sounds[0].Play();
+            Instantiate(sounds[0],transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            sounds[1].Play();
+            Instantiate(sounds[1],transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<EnemyStats>().Life = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().Damage;
             Destroy(gameObject) ;
         }
