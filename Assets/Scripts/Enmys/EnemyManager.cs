@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using Unity.VisualScripting;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -17,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private RayCastEnemy RCE; // hace un rayo a la direccion del jugador
     [SerializeField] private float distance; // es la distancia actual del enemigo al jugador 
     [SerializeField] private ParticleSystem meat;// sistema de particulas antes de la muerte
+    [SerializeField] private List<AudioSource> sounds;
 
     private void Start()
     {
@@ -44,10 +41,10 @@ public class EnemyManager : MonoBehaviour
             {
                 //pensamiento del mele
                 // si la distancia actual es menor a la distancia de parar hace algo
-                if(distance > ES.StopDistance)
+                if(distance > ES.StopDistance && ES.CanAttack)
                 {
                     // sigue al jugador+
-                    ES.CanAttack = true;
+                    //ES.CanAttack = true;
                     EAC.CallAnim(1);
                     Walk();
                 }
@@ -60,8 +57,8 @@ public class EnemyManager : MonoBehaviour
                     if(ES.CanAttack)
                     {
                         // mele attack
-                        ES.CanAttack = false;
                         EAC.CallAnim(2);
+                        ES.CanAttack = false;
                     } 
                 }
                  
@@ -93,10 +90,11 @@ public class EnemyManager : MonoBehaviour
         // si esta muerto
         else
         {
-                ENM.SetEnable(false);
-                Instantiate(meat,transform.position,Quaternion.identity);
-                GameManager.instance.KillsAcount = 1;
-                Destroy(gameObject);
+            sounds[0].Play();
+            ENM.SetEnable(false);
+            Instantiate(meat,transform.position,Quaternion.identity);
+            GameManager.instance.KillsAcount = 1;
+            Destroy(gameObject);
 
         }
     }
@@ -132,6 +130,7 @@ public class EnemyManager : MonoBehaviour
         ES.CanAttack = false;        
         yield return new WaitForSeconds(0.1f);
         ENM.SetEnable(false);
+        sounds[1].Play();
         RA.Shoot(ES.Damage, player);
         EAC.CallAnim(0);
         yield return new WaitForSeconds(ES.AttackColdown);
@@ -142,11 +141,16 @@ public class EnemyManager : MonoBehaviour
     // corutina del ataque a mele
     public void OnHitbox()
     {
+        sounds[1].Play();
         MeleAttackHitbox.SetActive(true);
     }
     public void OfHitbox()
     {
         MeleAttackHitbox.SetActive(false);
+    }
+    public void CanAttack()
+    {
+        ES.CanAttack = true;
     }
 
     #region getersYSeters
