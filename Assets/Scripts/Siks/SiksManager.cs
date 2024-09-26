@@ -8,6 +8,7 @@ public class SiksManager : MonoBehaviour
     [SerializeField] private GameObject parent;
     [SerializeField] private ParticleSystem particles1;
     [SerializeField] private ParticleSystem particles2;
+    [SerializeField] private AudioSource reviveSound;
     
     private void Update() 
     {
@@ -31,16 +32,18 @@ public class SiksManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            particles2.Play();
             isStayPlayer = true;
+            particles2.Play();
+            reviveSound.Play();
         }    
     }
     private void OnTriggerExit(Collider other) 
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            particles2.Stop();
             isStayPlayer = false;
+            particles2.Stop();
+            reviveSound.Stop();
         }    
     }
 }
