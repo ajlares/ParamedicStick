@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d175b64fa5d2f71409ea286281a81bf0, type: 3}
       propertyPath: m_Name
-      value: box_010
+      value: Box4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d175b64fa5d2f71409ea286281a81bf0, type: 3}
+      propertyPath: m_TagString
+      value: Map
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -104,6 +108,6 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2631896645781483121, guid: d175b64fa5d2f71409ea286281a81bf0, type: 3}

@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel_001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f12057de50129364084359eec145945b, type: 3}
+      propertyPath: m_TagString
+      value: Map
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104,6 +108,6 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7958080427481108640, guid: f12057de50129364084359eec145945b, type: 3}
