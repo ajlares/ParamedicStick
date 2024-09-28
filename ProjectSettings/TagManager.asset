@@ -8,6 +8,7 @@ TagManager:
   - Map
   - Sic
   - GameManager
+  - Spawn
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,6 @@ public class MeleAplyDamage : MonoBehaviour
     [SerializeField] private int damage;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
         if(other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<PlayerStats>().Life = Damage;

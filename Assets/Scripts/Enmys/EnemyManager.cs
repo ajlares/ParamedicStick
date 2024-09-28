@@ -72,12 +72,21 @@ public class EnemyManager : MonoBehaviour
                 // si si lo tiene en la mira ataca
                 if(RCE.IsPlayer)
                 {
+                    if(player.transform.position.y < transform.position.y + 5 && player.transform.position.y > transform.position.y - 5)
+                    {
                     // si puede atacar
                     if(ES.CanAttack)
                     {
                         // ataca
                         StartCoroutine(AttackRangeCall());
                     }
+                    }
+                    else
+                    {
+                        EAC.CallAnim(1);
+                        Walk();
+                    }
+
                 }
                 // si no lo tiene en la mira camina
                 else
