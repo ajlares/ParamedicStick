@@ -11,9 +11,11 @@ public class EnemyNavMesh : MonoBehaviour
         agent.enabled = valeu;
     }   
     public void NavMove()
-    {
-
-        agent.SetDestination(target.transform.position);
+    {   
+        if(target != null)
+        {
+            agent.SetDestination(target.transform.position);
+        }
     }
 
     public void SetTarget(GameObject Player)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnerManager : MonoBehaviour
 {
     // lista de spawners
-    [SerializeField] private List<GameObject> spawners;
+    [SerializeField] private GameObject[] spawners;
     // lista de enemigos
     [SerializeField] private List<GameObject> enemys;
     // lista de enfermos
@@ -13,6 +13,10 @@ public class SpawnerManager : MonoBehaviour
     // variables de control
     [SerializeField] private float SpawnTime;
 
+    private void Awake() 
+    {
+        spawners = GameObject.FindGameObjectsWithTag("Spawn");    
+    }
 
     private void Start()
     {
@@ -33,7 +37,7 @@ public class SpawnerManager : MonoBehaviour
     private void Spawn()
     {
         // genera numero random para selecionar el spawn 
-        int rSpawn = Random.Range(0, spawners.Count);
+        int rSpawn = Random.Range(0, spawners.Length);
         // por un numero random genera o un enfermo o un enemigo
         if(0 == Random.Range(0,2))
         {
