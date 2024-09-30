@@ -35,7 +35,6 @@ public class PlayerStats : MonoBehaviour
             {
                 IsDeath = true;
             }
-            Debug.Log("Vida actual del jugador: " + life);
         }
     }
     public float MaxLife

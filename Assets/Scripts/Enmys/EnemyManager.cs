@@ -26,7 +26,9 @@ public class EnemyManager : MonoBehaviour
 
     private void Update() 
     { 
-        // calcula la distancia actual entre el jugador y el enemigo
+        if(player != null)
+        {
+                    // calcula la distancia actual entre el jugador y el enemigo
         distance = Vector3.Distance(this.transform.position, player.transform.position);
         // hace que el enemigo voltie a ver al jugador
             var lookPose = player.transform.position - transform.position;
@@ -104,6 +106,7 @@ public class EnemyManager : MonoBehaviour
             GameManager.instance.KillsAcount = 1;
             Destroy(gameObject);
 
+        }
         }
     }
 
