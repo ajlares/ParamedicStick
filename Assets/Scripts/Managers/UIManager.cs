@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject PausePanel;
     [SerializeField] GameObject UIPausePanel;
     [SerializeField] GameObject UIOptionsPanel;
+    [SerializeField] GameObject deathPanel;
     [SerializeField] bool isPause;
     [SerializeField] bool isOPtions;
     [SerializeField] bool isMainMenu;
@@ -64,14 +65,12 @@ public class UIManager : MonoBehaviour
     {
         if(isOPtions)
         {
-            Debug.Log("options panel off");
             UIOptionsPanel.SetActive(false);
             UIPausePanel.SetActive(true);
             isOPtions = isOPtions = false;
         }
         else
         {
-            Debug.Log("options panel on");
             UIOptionsPanel.SetActive(true);
             UIPausePanel.SetActive(false);
             isOPtions = isOPtions = true;
@@ -81,6 +80,7 @@ public class UIManager : MonoBehaviour
     public void DeathPanel()
     {
         Time.timeScale = 0;
+        deathPanel.SetActive(true);
     }
     public void PauseGame()
     {
