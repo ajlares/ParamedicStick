@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,8 @@ public class TwinStickMovement : MonoBehaviour
     [SerializeField] private float gamepadRotateSmooothing = 1000f;
 
     [SerializeField] private bool isGamepad; //No es necesario esto pero sirve para testeo
+
+    [SerializeField] private Animator Anim;
 
     private CharacterController controller;
 
@@ -49,10 +52,21 @@ public class TwinStickMovement : MonoBehaviour
     {
         if(!PS.IsDeath)
         {
-            Movement();
-            if(Input.GetKeyDown(KeyCode.Mouse0) && !UIManager.instance.IsPause)
+            if (!PS.IsAttacking)
             {
-                gun.Shoot(PS.Damage);
+
+                
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !UIManager.instance.IsPause)
+                {
+                    PlayerStats.instance.AnimationInteger(5);
+                    gun.Shoot(PS.Damage);
+                }
+                Movement();
+                
+            }
+            else
+            {
+
             }
         }
         else
@@ -125,7 +139,7 @@ public class TwinStickMovement : MonoBehaviour
     }
 
     private void LookAt(Vector3 lookPoint) 
-    {//Como el mouse puede estar en cualquier punto de y, es muy probable que si lo pones encima de una caja o obstaculo, el personaje se tocera para voltear a ver el mouse
+    {//Como el mouse puede estar en cualquier punto de y, es muy probable que si lo pones encima de una caja o obstaculo, el personaje se torcera para voltear a ver el mouse
      //se tiene que corregir la rotacion de este
         Vector3 heightCorrectedPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z); //Se esta tomando la posicion del mouse solamente en [x] y [z]
         transform.LookAt(heightCorrectedPoint);
